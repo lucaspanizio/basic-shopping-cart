@@ -1,0 +1,94 @@
+[ 
+  
+	{
+		"id": 1,
+		"description": "Ventilador Arno",
+		"value": 99,
+		"image": "https://a-static.mlcdn.com.br/280x210/ventilador-de-mesa-arno-turbo-force-40cm-vf42-2-em-1-6-pas-3-velocidades/gazin/12108/7bb08fc1d87827f64378b8c783d53cb3.jpeg"
+	},
+	{
+		"id": 2,
+		"description": "Panela de Pressão",
+		"value": 189,
+		"image": "https://a-static.mlcdn.com.br/280x210/panela-de-pressao-nigro-eterna-polida-6-litros/uaiexpress1/011275/2bde5dedace493f97c9752f34b1693b3.jpeg"
+	},
+	{
+		"id": 3,
+		"description": "Notebook Acert Nitro 5",
+		"value": 3450.90,
+		"image": "https://a-static.mlcdn.com.br/280x210/notebook-gamer-acer-nitro-5-intel-core-i5-8gb-512gb-ssd-156-full-hd-nvidia-gtx-1650-4gb-linux/magazineluiza/236463100/929d1e3f4974729983958ed4d862f3a0.jpg"
+	},
+	{
+		"id": 4,
+		"description": "Monitor Gamer",
+		"value": 890.80,
+		"image": "https://a-static.mlcdn.com.br/280x210/monitor-gamer-ultrawide-lg-26wq500-b-257-full-hd-75hz-ips-1ms-hdmi-freesync/magazineluiza/235672100/ba65c5713fe3d5da9dd8faa15888233b.jpg"
+	},
+	{
+		"id": 5,
+		"description": "Impressora Epson",
+		"value": 999.80,
+		"image": "https://a-static.mlcdn.com.br/280x210/impressora-multifuncional-epson-ecotank-l3250-tanque-de-tinta-colorida-usb-wi-fi/magazineluiza/231776800/9af65f2b0a224acdfa86ac804507a0f4.jpg"
+	},
+	{
+		"id": 6,
+		"description": "Televisão Samsung 4K",
+		"value": 5450,
+		"image": "https://a-static.mlcdn.com.br/280x210/smart-tv-50-crystal-4k-samsung-50au7700-wi-fi-bluetooth-hdr-alexa-built-in-3-hdmi-1-usb/magazineluiza/193441200/0fc5facd981c5c79492fd4e96068712a.jpg"
+	},
+	{
+		"id": 7,
+		"description": "Celular Apple 11",
+		"value": 7990,
+		"image": "https://a-static.mlcdn.com.br/280x210/iphone-11-apple-64gb-preto-61-12mp-ios/magazineluiza/155610500/2815c001fcdff11766fcb266dca62daf.jpg"
+	},
+	{
+		"id": 8,
+		"description": "Air Fryer Philco",
+		"value": 679.90,
+		"image": "https://a-static.mlcdn.com.br/280x210/fritadeira-eletrica-sem-oleo-air-fryer-philco-gourmet-pfr13p-preta-72l-com-timer/magazineluiza/023345500/41bdea6bc857674cbef92d3f0cf7ea58.jpg"
+	},
+	{
+		"id": 9,
+		"description": "Batedeira Mondial",
+		"value": 399.90,
+		"image": "https://a-static.mlcdn.com.br/280x210/batedeira-mondial-vermelha-400w-pratica-b-44-r-3-velocidades/magazineluiza/021289800/dc75c778165bcfc0ef61cdf31c2c5dfd.jpg"
+	},
+	{
+		"id": 10,
+		"description": "Ecko Dot 3",
+		"value": 280,
+		"image": "https://a-static.mlcdn.com.br/280x210/alexa-echodot-amazon-3-geracao-black/olistsp/ospj0okxlg7nyfjt/a008c06cc3bc4309df63009ba98458d9.jpeg"
+	},
+	{
+		"id": 11,
+		"description": "Cooler 20L",
+		"value": 280,
+		"image": "https://a-static.mlcdn.com.br/280x210/caixa-termica-cooler-20-litros-cinza-termolar/parisaqualux/28338/6c3178841f479f76f7991912e194faaa.jpeg"
+	},
+	{
+		"id": 12,
+		"description": "Bicicleta GTS 29''",
+		"value": 2459,
+		"image": "https://a-static.mlcdn.com.br/280x210/bicicleta-aro-29-gts-full-24-marchas-freios-a-disco-gts-feel/conquestbike/15997593483/a0be986272fe9ed16d520e79935024d2.jpeg"
+	},
+	{
+		"id": 13,
+		"description": "Patinete Infantil",
+		"value": 187,
+		"image": "https://a-static.mlcdn.com.br/280x210/patinete-infantil-juvenil-menina-menino-2-rodas-dobravel-na-web-kids/nawebutilidade/pat-02/7467cf01d45de2c19a465baecc731a9a.jpeg"
+	},
+	{
+		"id": 14,
+		"description": "Pneu Pirelli 17''",
+		"value": 550,
+		"image": "https://a-static.mlcdn.com.br/280x210/pneu-itaro-aro-17-it301-215-50r17-95w-xl/pneustore/16000041/084f33c6b54a8cac07d6742bb8715673.jpeg"
+	},
+	{
+		"id": 15,
+		"description": "Mixer Mondial",
+		"value": 189,
+		"image": "https://a-static.mlcdn.com.br/280x210/mixer-mondial-preto-e-prata-350w-turbo-max-m-13-2-velocidades/magazineluiza/021528100/f407ec9c45bf7b680a532595af022fb6.jpg"
+	}	
+  
+]

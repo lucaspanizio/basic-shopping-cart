@@ -1,0 +1,25 @@
+.store {
+   display: flex;
+   flex-direction: row;
+}
+
+.grid {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   width: 80%;
+   max-width: 80%;
+   height: 100%;
+   /* background-color: blue; */
+}
+
+.cart {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 20%;
+   height: 100%;
+   right: 0;
+   /* background-color: brown; */
+}
