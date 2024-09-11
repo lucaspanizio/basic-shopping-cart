@@ -1,75 +1,25 @@
-import React, { createContext, useContext, useState } from 'react';
-import mock_products from '../mock_products.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../store/redux/store';
+import {
+  IProduct,
+  ICartStates,
+  ICartActions,
+  addToCart,
+  removeFromCart,
+} from '../store/redux/cart-reducer';
 
-export interface IProduct {
-  id: number;
-  description: string;
-  image: string;
-  value: number;
-}
+interface UseProducts extends ICartStates, ICartActions {}
 
-interface IProductsContext {
-  products: IProduct[];
-  cart: IProduct[];
-  cartSum: number;
-  appendCart: (product: IProduct) => void;
-  deleteCart: (product: IProduct) => void;
-}
-
-const ProductsContext = createContext({} as IProductsContext);
-
-interface IProductsProviderProps {
-  children: React.ReactNode;
-}
-
-const ProductsProvider: React.FC<IProductsProviderProps> = ({ children }) => {
-  const [products, setProducts] = useState(mock_products);
-  const [cart, setCart] = useState<IProduct[]>([]);
-  const [cartSum, setCartSum] = useState(0);
-
-  const appendCart = (product: IProduct) => {
-    setCart((oldState) => [...oldState, product]);
-    setCartSum((oldState) => oldState + product.value);
-
-    setProducts((oldState) =>
-      oldState.filter((item) => item.id !== product.id),
-    );
-  };
-
-  const deleteCart = (product: IProduct) => {
-    setCart((oldState) => oldState.filter((item) => item.id !== product.id));
-    setCartSum((oldState) => {
-      const sum = oldState - product.value;
-      return sum > 0 ? sum : 0;
-    });
-
-    setProducts((oldState) => [
-      ...oldState,
-      ...mock_products.filter((item) => item.id === product.id),
-    ]);
-  };
-
-  return (
-    <ProductsContext.Provider
-      value={{
-        products,
-        cart,
-        cartSum,
-        appendCart,
-        deleteCart,
-      }}
-    >
-      {children}
-    </ProductsContext.Provider>
+export const useProducts = (): UseProducts => {
+  const dispatch: AppDispatch = useDispatch();
+  const { cartProducts = [], value } = useSelector(
+    (state: RootState) => state.products,
   );
+
+  return {
+    cartProducts,
+    value,
+    addToCart: (product: IProduct) => dispatch(addToCart(product)),
+    removeFromCart: (product: IProduct) => dispatch(removeFromCart(product)),
+  };
 };
-
-function useProducts(): IProductsContext {
-  const context = useContext(ProductsContext);
-  if (!context) {
-    throw new Error('useProducts must be used within a ProductsProvider');
-  }
-  return context;
-}
-
-export { ProductsProvider, useProducts };

@@ -2,14 +2,15 @@ import React from 'react';
 import { Product } from '../product';
 import { Button } from '../button';
 import { useProducts } from '../../hooks/useProducts';
+import mock_products from '../../mock_products.json';
 import './styles.css';
 
 export const List: React.FC = () => {
-  const { products, appendCart } = useProducts();
+  const { addToCart } = useProducts();
 
   return (
     <div className="grid">
-      {products.map((product) => {
+      {mock_products.map((product) => {
         return (
           <Product
             key={`${product.id}_${Math.random()}`}
@@ -21,7 +22,7 @@ export const List: React.FC = () => {
             <Button
               title="COMPRAR"
               bgColor="#54B435"
-              handleClick={() => appendCart(product)}
+              handleClick={() => addToCart(product)}
             />
           </Product>
         );
