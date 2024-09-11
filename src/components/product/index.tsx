@@ -3,18 +3,22 @@ import { IProduct } from '../../store/redux/cart-reducer';
 import { formatCurrency } from '../../utils/formatCurrency';
 import './styles.css';
 
+interface IProductProps {
+  data: IProduct;
+}
+
 export const Product = ({
+  data,
   children,
-  image,
-  description,
-  value,
-}: React.PropsWithChildren<IProduct>) => {
+}: React.PropsWithChildren<IProductProps>) => {
+  const { title, price, image } = data;
+
   return (
     <div className="card">
       <img src={image} alt="Imagem do Produto" />
       <div className="overlay"></div>
-      <span className="descriptionProduct">{description}</span>
-      <span>{formatCurrency(value)}</span>
+      <span className="descriptionProduct">{title}</span>
+      <span>{formatCurrency(price)}</span>
       {children}
     </div>
   );

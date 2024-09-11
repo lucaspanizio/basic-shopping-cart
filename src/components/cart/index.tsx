@@ -15,13 +15,7 @@ export const Cart: React.FC = () => {
 
       {cartProducts.map((product) => {
         return (
-          <Product
-            key={`${product.id}_${Math.random()}`}
-            id={product.id}
-            description={product.description}
-            image={product.image}
-            value={product.value}
-          >
+          <Product key={`${product.id}_${Math.random()}`} data={product}>
             <Button
               title="REMOVER"
               bgColor="#FC2947"
