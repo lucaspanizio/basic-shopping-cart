@@ -4,8 +4,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 190px;
-  width: 190px;
+  width: 200px;
+  aspect-ratio: 1/1;
+  padding: 0.75rem;
   margin: 10px;
   background-color: #fff;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
@@ -17,8 +18,8 @@
 }
 
 .card img {
-  height: 135px;
-  max-width: 90%;
+  width: 100%;
+  /* max-width: 90%; */
 }
 
 .card span {
@@ -26,7 +27,15 @@
 }
 
 .card span.descriptionProduct {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  max-height: 40px;
+  line-height: 20px;
+  overflow: hidden;
   font-weight: 600;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
 }
 
 .card button {
