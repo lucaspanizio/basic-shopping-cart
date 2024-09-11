@@ -1,0 +1,65 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  width: 190px;
+  margin: 10px;
+  background-color: #fff;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.card:hover button {
+  opacity: 1;
+}
+
+.card img {
+  height: 135px;
+  max-width: 90%;
+}
+
+.card span {
+  font-size: 0.9rem;
+}
+
+.card span.descriptionProduct {
+  font-weight: 600;
+}
+
+.card button {
+  position: absolute;
+  height: 40px;
+  width: 75%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 5px;
+  border: none;
+}
+
+.card button:hover {
+  cursor: pointer;
+}
+
+.card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  display: none;
+  background: rgba(0, 0, 0, 1);
+  transition: background 0.5s ease;
+}
+
+.card:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+}

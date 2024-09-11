@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState } from "react";
-import mock_products from "../mock_products.json";
+import React, { createContext, useContext, useState } from 'react';
+import mock_products from '../mock_products.json';
 
-interface IProduct {
+export interface IProduct {
   id: number;
   description: string;
   image: string;
@@ -32,7 +32,7 @@ const ProductsProvider: React.FC<IProductsProviderProps> = ({ children }) => {
     setCartSum((oldState) => oldState + product.value);
 
     setProducts((oldState) =>
-      oldState.filter((item) => item.id !== product.id)
+      oldState.filter((item) => item.id !== product.id),
     );
   };
 
@@ -67,7 +67,7 @@ const ProductsProvider: React.FC<IProductsProviderProps> = ({ children }) => {
 function useProducts(): IProductsContext {
   const context = useContext(ProductsContext);
   if (!context) {
-    throw new Error("useProducts must be used within a ProductsProvider");
+    throw new Error('useProducts must be used within a ProductsProvider');
   }
   return context;
 }
