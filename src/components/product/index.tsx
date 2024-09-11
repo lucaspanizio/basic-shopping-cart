@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../../styles/Product.module.css";
+import React from 'react';
+import './styles.css';
 
 interface IProduct {
   id: number;
@@ -9,17 +9,17 @@ interface IProduct {
   children?: React.ReactNode;
 }
 
-function Product(props: IProduct) {
+export function Product(props: IProduct) {
   return (
-    <div className={styles.card}>
+    <div className="card">
       <img src={props.image} alt="Imagem do Produto" />
-      <div className={styles.overlay}></div>
-      <span className={styles.descriptionProduct}>{props.description}</span>
+      <div className="overlay"></div>
+      <span className="descriptionProduct">{props.description}</span>
       <span>
         {props.value
-          ? props.value.toLocaleString("pt-br", {
-              style: "currency",
-              currency: "BRL",
+          ? props.value.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
             })
           : null}
       </span>
@@ -27,5 +27,3 @@ function Product(props: IProduct) {
     </div>
   );
 }
-
-export { Product };

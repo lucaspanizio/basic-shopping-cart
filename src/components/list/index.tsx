@@ -1,13 +1,14 @@
-import React from "react";
-import { Product } from "../product";
-import { Button } from "../button";
-import { useProducts } from "../../hooks/useProducts";
+import React from 'react';
+import { Product } from '../product';
+import { Button } from '../button';
+import { useProducts } from '../../hooks/useProducts';
+import './styles.css';
 
-const Grid: React.FC = () => {
+export const List: React.FC = () => {
   const { products, appendCart } = useProducts();
 
   return (
-    <>
+    <div className="grid">
       {products.map((product) => {
         return (
           <Product
@@ -25,8 +26,6 @@ const Grid: React.FC = () => {
           </Product>
         );
       })}
-    </>
+    </div>
   );
 };
-
-export { Grid };

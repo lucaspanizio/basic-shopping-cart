@@ -1,18 +1,19 @@
-import React from "react";
-import { Product } from "../product";
-import { Button } from "../button";
-import { useProducts } from "../../hooks/useProducts";
+import React from 'react';
+import { Product } from '../product';
+import { Button } from '../button';
+import { useProducts } from '../../hooks/useProducts';
+import './styles.css';
 
-const Cart: React.FC = () => {
+export const Cart: React.FC = () => {
   const { cart, cartSum, deleteCart } = useProducts();
 
   return (
-    <>
+    <div className="cart">
       <span>Qtde Itens: {cart.length}</span>
       <span>
-        {cartSum.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
+        {cartSum.toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL',
         })}
       </span>
 
@@ -33,8 +34,6 @@ const Cart: React.FC = () => {
           </Product>
         );
       })}
-    </>
+    </div>
   );
 };
-
-export { Cart };
