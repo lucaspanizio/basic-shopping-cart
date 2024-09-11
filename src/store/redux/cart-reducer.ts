@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IProduct {
   id: number;
-  description: string;
+  title: string;
+  price: number;
   image: string;
-  value: number;
 }
 
 export interface ICartStates {
@@ -29,14 +29,14 @@ const cartSlice = createSlice({
     addToCart(state, action: PayloadAction<IProduct>) {
       const product = action.payload;
       state.cartProducts.push(product);
-      state.value += product.value;
+      state.value += product.price;
     },
     removeFromCart(state, action: PayloadAction<IProduct>) {
       const product = action.payload;
       state.cartProducts = state.cartProducts.filter(
         (item) => item.id !== product.id,
       );
-      state.value = Math.max(state.value - product.value, 0);
+      state.value = Math.max(state.value - product.price, 0);
     },
   },
 });
