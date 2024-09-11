@@ -5,19 +5,19 @@ import { useProducts } from '../../hooks/useProducts';
 import './styles.css';
 
 export const Cart: React.FC = () => {
-  const { cart, cartSum, deleteCart } = useProducts();
+  const { cartProducts, value, removeFromCart } = useProducts();
 
   return (
     <div className="cart">
-      <span>Qtde Itens: {cart.length}</span>
+      <span>Qtde Itens: {cartProducts.length}</span>
       <span>
-        {cartSum.toLocaleString('pt-br', {
+        {value.toLocaleString('pt-br', {
           style: 'currency',
           currency: 'BRL',
         })}
       </span>
 
-      {cart.map((product) => {
+      {cartProducts.map((product) => {
         return (
           <Product
             key={`${product.id}_${Math.random()}`}
@@ -29,7 +29,7 @@ export const Cart: React.FC = () => {
             <Button
               title="REMOVER"
               bgColor="#FC2947"
-              handleClick={() => deleteCart(product)}
+              handleClick={() => removeFromCart(product)}
             />
           </Product>
         );
