@@ -1,5 +1,6 @@
 import React from 'react';
 import { IProduct } from '../../store/redux/cart-reducer';
+import { formatCurrency } from '../../utils/formatCurrency';
 import './styles.css';
 
 export const Product = ({
@@ -13,14 +14,7 @@ export const Product = ({
       <img src={image} alt="Imagem do Produto" />
       <div className="overlay"></div>
       <span className="descriptionProduct">{description}</span>
-      <span>
-        {value
-          ? value.toLocaleString('pt-br', {
-              style: 'currency',
-              currency: 'BRL',
-            })
-          : null}
-      </span>
+      <span>{formatCurrency(value)}</span>
       {children}
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../product';
 import { Button } from '../button';
 import { useProducts } from '../../hooks/useProducts';
+import { formatCurrency } from '../../utils/formatCurrency';
 import './styles.css';
 
 export const Cart: React.FC = () => {
@@ -10,12 +11,7 @@ export const Cart: React.FC = () => {
   return (
     <div className="cart">
       <span>Qtde Itens: {cartProducts.length}</span>
-      <span>
-        {value.toLocaleString('pt-br', {
-          style: 'currency',
-          currency: 'BRL',
-        })}
-      </span>
+      <span>{formatCurrency(value)}</span>
 
       {cartProducts.map((product) => {
         return (
