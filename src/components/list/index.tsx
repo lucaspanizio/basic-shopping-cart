@@ -1,19 +1,19 @@
-import React from 'react';
-import { Product } from '../product';
-import { Button } from '../button';
 import { useProducts } from '../../hooks/useProducts';
 import { useFetchProducts } from '../../services/api/products';
+import { IProduct } from '../../store/redux/cart-types';
+import { Product } from '../product';
+import { Button } from '../button';
 import './styles.css';
 
-export const List: React.FC = () => {
+export const List = () => {
   const { addToCart } = useProducts();
   const { data: products = [] } = useFetchProducts();
 
   return (
     <div className="grid">
-      {products?.map((product: any) => {
+      {products?.map((product: IProduct, index: number) => {
         return (
-          <Product key={`${product.id}_${Math.random()}`} data={product}>
+          <Product key={`${product.id}_${index}`} data={product}>
             <Button
               title="COMPRAR"
               bgColor="#54B435"

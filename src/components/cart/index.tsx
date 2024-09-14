@@ -6,13 +6,10 @@ import { formatCurrency } from '../../utils/formatCurrency';
 import './styles.css';
 
 export const Cart: React.FC = () => {
-  const { cartProducts, value, removeFromCart } = useProducts();
+  const { cartProducts, value, totalQuantity, removeFromCart } = useProducts();
 
   return (
     <div className="cart">
-      <span>Qtde Itens: {cartProducts.length}</span>
-      <span>{formatCurrency(value)}</span>
-
       {cartProducts.map((product) => {
         return (
           <Product key={`${product.id}_${Math.random()}`} data={product}>
@@ -24,6 +21,9 @@ export const Cart: React.FC = () => {
           </Product>
         );
       })}
+
+      <span>Qtde Itens: {totalQuantity}</span>
+      <span>{formatCurrency(value)}</span>
     </div>
   );
 };
