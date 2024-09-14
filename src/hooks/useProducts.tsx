@@ -1,25 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store/redux/store';
+import { addToCart, removeFromCart } from '../store/redux/cart-reducer';
 import {
-  IProduct,
-  ICartStates,
   ICartActions,
-  addToCart,
-  removeFromCart,
-} from '../store/redux/cart-reducer';
+  ICartStates,
+  IProduct,
+  IProductInCart,
+} from '../store/redux/cart-types';
 
 interface UseProducts extends ICartStates, ICartActions {}
 
 export const useProducts = (): UseProducts => {
   const dispatch: AppDispatch = useDispatch();
-  const { cartProducts = [], value } = useSelector(
+  const { cartProducts, value, totalQuantity } = useSelector(
     (state: RootState) => state.products,
   );
 
   return {
     cartProducts,
     value,
+    totalQuantity,
     addToCart: (product: IProduct) => dispatch(addToCart(product)),
-    removeFromCart: (product: IProduct) => dispatch(removeFromCart(product)),
+    removeFromCart: (product: IProductInCart) =>
+      dispatch(removeFromCart(product)),
   };
 };
