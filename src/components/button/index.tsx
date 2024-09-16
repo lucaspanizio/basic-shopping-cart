@@ -1,24 +1,27 @@
 import 'font-awesome/css/font-awesome.min.css';
 
-interface IButton {
-  title: string;
+interface IButtonProps {
+  text: string;
   bgColor: string;
   icon?: string;
   iconColor?: string;
   handleClick: () => void;
 }
 
-export function Button(props: IButton) {
+export function Button({
+  text,
+  handleClick,
+  icon,
+  iconColor,
+  bgColor,
+}: IButtonProps) {
   return (
-    <button
-      onClick={props.handleClick}
-      style={{ backgroundColor: props.bgColor }}
-    >
+    <button onClick={handleClick} style={{ backgroundColor: bgColor }}>
       <span>
-        {props.title}&nbsp;
+        {text}&nbsp;
         <i
-          className={props.icon ?? 'fa fa-shopping-cart'}
-          style={{ color: props.iconColor ?? '#FFF' }}
+          className={icon ?? 'fa fa-shopping-cart'}
+          style={{ color: iconColor ?? '#FFF' }}
         ></i>
       </span>
     </button>
