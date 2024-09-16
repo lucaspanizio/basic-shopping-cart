@@ -1,5 +1,5 @@
 import React from 'react';
-import { IProduct } from '../../store/redux/cart-types';
+import { IProduct } from '../../store/cart/cart-types';
 import { formatCurrency } from '../../utils/formatCurrency';
 import './styles.css';
 

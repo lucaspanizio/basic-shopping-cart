@@ -10,7 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { cartReducer } from './cart-reducer';
+import { cartReducer } from './cart/cart-slice';
 
 const persistConfig = {
   key: 'root',

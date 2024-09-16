@@ -10,12 +10,14 @@ export interface IProductInCart extends IProduct {
 }
 
 export interface ICartStates {
-  cartProducts: IProductInCart[];
-  value: number;
+  items: IProductInCart[];
+  isOpen: boolean;
+  totalValue: number;
   totalQuantity: number;
 }
 
 export interface ICartActions {
-  addToCart: (product: IProduct) => void;
-  removeFromCart: (product: IProductInCart) => void;
+  toggle: any;
+  appendItem: (product: IProduct) => void;
+  removeItem: (product: IProductInCart) => void;
 }

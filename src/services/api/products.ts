@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { IProduct } from '../../store/redux/cart-reducer';
+import { IProduct } from '../../store/cart/cart-types';
 import { api } from '../api';
 
 const FIVE_MINUTES_MS = 1000 * 60 * 5;
