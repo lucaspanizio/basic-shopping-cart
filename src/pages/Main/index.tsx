@@ -1,12 +1,15 @@
-import React from 'react';
 import { List } from '../../components/list';
+import { Header } from '../../components/header';
 import { Cart } from '../../components/cart';
+import { useCart } from '../../hooks/useCart';
 
-export const Main: React.FC = () => {
+export const Main = () => {
+  const { isOpen } = useCart();
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', margin: '1rem 0' }}>
+    <>
+      <Header />
       <List />
-      <Cart />
-    </div>
+      {isOpen && <Cart />}
+    </>
   );
 };
