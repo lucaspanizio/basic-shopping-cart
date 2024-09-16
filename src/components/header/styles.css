@@ -13,9 +13,15 @@
 }
 
 .header_logo {
-  text-transform: uppercase;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.header_logo h1 {
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  text-transform: uppercase;
 }
 
 .header_btn-cart {
