@@ -6,8 +6,8 @@
   width: 100%;
   height: 80px;
   padding: 0 1.5rem;
-  color: #fcfcfc;
-  background-color: #18181b;
+  color: var(--white);
+  background-color: var(--zinc-900);
   justify-content: space-between;
   flex: 1;
 }
@@ -25,11 +25,33 @@
 }
 
 .header_btn-cart {
+  position: relative;
   font-size: 2rem;
   width: auto;
   border: none;
-  color: #fcfcfc;
+  color: var(--white);
   background-color: transparent;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.header_btn-cart_badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  top: -5px;
+  right: -10px;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 50px;
+  font-size: 0.7rem;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  color: var(--white);
+  background-color: var(--purple-redux);
 }

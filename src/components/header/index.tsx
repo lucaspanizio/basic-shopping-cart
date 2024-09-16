@@ -3,15 +3,18 @@ import logo from '../../assets/logo.png';
 import './styles.css';
 
 export const Header = () => {
-  const { toggle } = useCart();
+  const { toggle, totalQuantity } = useCart();
   return (
     <div className="header">
-      <div className="header_logo">
+      <a className="header_logo" href="/">
         <img src={logo} alt="Logo" width="56px" />
         <h1>Redux Store</h1>
-      </div>
+      </a>
       <button type="button" className="header_btn-cart" onClick={toggle}>
         <i className="fa fa-shopping-cart" />
+        {totalQuantity > 0 && (
+          <span className="header_btn-cart_badge">{totalQuantity}</span>
+        )}
       </button>
     </div>
   );
