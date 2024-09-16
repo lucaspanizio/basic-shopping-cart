@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap');
 
+:root {
+  --white: #fcfcfc;
+  --gray-300: #d1d5db;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --purple-redux: #7a50be;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   color: #fcfcfc;
-  background-color: #27272a;
+  background-color: var(--zinc-800);
 }
 
 a {
