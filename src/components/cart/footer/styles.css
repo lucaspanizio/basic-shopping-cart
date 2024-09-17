@@ -1,0 +1,12 @@
+.cart-footer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  font-weight: bold;
+  background-color: var(--zinc-900);
+}
