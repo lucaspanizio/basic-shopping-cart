@@ -1,5 +1,7 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 20;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,22 +11,25 @@
   color: var(--white);
   background-color: var(--zinc-900);
   justify-content: space-between;
-  flex: 1;
 }
 
-.header_logo {
+.header__logo {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
 
-.header_logo h1 {
+.header__logo-img {
+  width: 56px;
+}
+
+.header__logo-title {
   font-weight: 600;
   font-size: 1.75rem;
   text-transform: uppercase;
 }
 
-.header_btn-cart {
+.header__btn-cart {
   position: relative;
   font-size: 2rem;
   width: auto;
@@ -35,7 +40,7 @@
   cursor: pointer;
 }
 
-.header_btn-cart_badge {
+.header__btn-cart-badge {
   position: absolute;
   display: flex;
   align-items: center;

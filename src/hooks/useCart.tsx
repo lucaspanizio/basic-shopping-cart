@@ -8,18 +8,24 @@ import {
   IProductInCart,
 } from '../store/cart/cart-types';
 
-interface UseProducts extends ICartStates, ICartActions {}
+interface UseProducts extends ICartStates, ICartActions {
+  hasAnyProduct: boolean;
+}
 
 export const useCart = (): UseProducts => {
   const dispatch: AppDispatch = useDispatch();
+
   const { items, totalValue, totalQuantity, isOpen } = useSelector(
     (state: RootState) => state.products,
   );
+
+  const hasAnyProduct = totalQuantity > 0;
 
   return {
     items,
     totalValue,
     totalQuantity,
+    hasAnyProduct,
     isOpen,
     toggle: () => dispatch(toggle()),
     appendItem: (product: IProduct) => dispatch(appendItem(product)),
