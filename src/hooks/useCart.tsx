@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../store';
-import { appendItem, removeItem, toggle } from '../store/cart/cart-slice';
+import { RootState, AppDispatch } from '@/store';
+import { appendItem, removeItem, toggle } from '@/store/cart/cart-slice';
 import {
   ICartActions,
   ICartStates,
   IProduct,
   IProductInCart,
-} from '../store/cart/cart-types';
+} from '@/store/cart/cart-types';
 
 interface UseProducts extends ICartStates, ICartActions {
   hasAnyProduct: boolean;

@@ -1,4 +1,4 @@
-import { IProduct } from '../../store/cart/cart-types';
+import { IProduct } from '@/store/cart/cart-types';
 
 class ProductMapper {
   toDomain(data: any): IProduct[] {

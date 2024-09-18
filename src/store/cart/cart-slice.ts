@@ -1,5 +1,5 @@
-import { actions } from './cart-actions';
 import { createSlice } from '@reduxjs/toolkit';
+import { actions } from './cart-actions';
 import { ICartStates } from './cart-types';
 
 const initialState: ICartStates = {

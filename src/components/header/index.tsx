@@ -1,5 +1,5 @@
-import { useCart } from '../../hooks/useCart';
-import logo from '../../assets/logo.png';
+import { useCart } from '@/hooks/useCart';
+import logo from '@/assets/logo.png';
 import './styles.css';
 
 export const Header = () => {

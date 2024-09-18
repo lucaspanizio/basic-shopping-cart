@@ -1,8 +1,8 @@
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { formatCurrency } from '../../utils/formatCurrency';
-import { useCart } from '../../hooks/useCart';
-import { IProduct } from '../../store/cart/cart-types';
+import { formatCurrency } from '@/utils/formatCurrency';
+import { useCart } from '@/hooks/useCart';
+import { IProduct } from '@/store/cart/cart-types';
 import './styles.css';
 
 interface IProductListProps {
