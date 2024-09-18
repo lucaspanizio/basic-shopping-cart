@@ -1,11 +1,26 @@
 .product-list {
   display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.product-list__slides {
+  display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
 }
 
-.product-list__card {
+.product-list__title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-left: var(--swiper-navigation-sides-offset, 15px);
+}
+
+.product-list__slides-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,15 +36,15 @@
   border-radius: 15px;
 }
 
-.product-list__card:hover .product-list__card-button {
+.product-list__slides-card:hover .product-list__slides-card-button {
   opacity: 1;
 }
 
-.product-list__card-img {
+.product-list__slides-card-img {
   width: 100%;
 }
 
-.product-list__card-description {
+.product-list__slides-card-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   max-height: 40px;
@@ -42,12 +57,12 @@
   text-overflow: ellipsis;
 }
 
-.product-list__card-price {
+.product-list__slides-card-price {
   color: var(--purple-redux);
   font-weight: 600;
 }
 
-.product-list__card-button {
+.product-list__slides-card-button {
   position: absolute;
   height: 40px;
   width: 75%;
@@ -62,15 +77,15 @@
   background-color: var(--purple-redux);
 }
 
-.product-list__card-button span {
+.product-list__slides-card-button span {
   text-transform: uppercase;
 }
 
-.product-list__card-button:hover {
+.product-list__slides-card-button:hover {
   cursor: pointer;
 }
 
-.product-list__card-overlay {
+.product-list__slides-card-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,7 +97,7 @@
   transition: background 0.5s ease;
 }
 
-.product-list__card:hover .product-list__card-overlay {
+.product-list__slides-card:hover .product-list__slides-card-overlay {
   display: block;
   background: rgba(0, 0, 0, 0.3);
 }
@@ -92,22 +107,18 @@
 .swiper {
   width: 100%;
   height: auto;
-  margin-left: 1.5rem !important;
-  margin-right: 1.5rem !important;
   padding-bottom: 1.5rem !important;
 }
 
 .swiper-wrapper {
   display: flex;
-  padding-top: 2rem;
-  justify-content: space-around !important;
   height: 300px !important;
 }
 
 .swiper-slide {
   display: flex !important;
   height: min-content !important;
-  justify-content: space-around !important;
+  justify-content: center !important;
 }
 
 .swiper-button-next,
