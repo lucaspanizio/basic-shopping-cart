@@ -1,4 +1,4 @@
-import { productMapper } from './../mappers/ProductMapper';
+import { productMapper } from '@/services/mappers/ProductMapper';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../api';
 

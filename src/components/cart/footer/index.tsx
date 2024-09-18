@@ -1,5 +1,5 @@
-import { useCart } from '../../../hooks/useCart';
-import { formatCurrency } from '../../../utils/formatCurrency';
+import { useCart } from '@/hooks/useCart';
+import { formatCurrency } from '@/utils/formatCurrency';
 import './styles.css';
 
 export const Footer = () => {
