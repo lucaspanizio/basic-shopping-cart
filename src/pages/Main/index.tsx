@@ -1,5 +1,5 @@
 import { useGetProducts } from '../../services/api/products';
-import { Header } from '../../components/header';
+import { Template } from '../../components/template';
 import { ProductList } from '../../components/productList';
 import { Cart } from '../../components/cart';
 
@@ -9,10 +9,11 @@ export const Main = () => {
 
   return (
     <>
-      <Header />
-      <ProductList title="Notebooks" data={notebooks} />
-      <ProductList title="Celulares" data={smartphones} />
-      <Cart />
+      <Template>
+        <ProductList title="Notebooks" data={notebooks} />
+        <ProductList title="Celulares" data={smartphones} />
+        <Cart />
+      </Template>
     </>
   );
 };
