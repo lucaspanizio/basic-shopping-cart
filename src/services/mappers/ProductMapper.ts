@@ -1,5 +1,7 @@
+import { IProduct } from '../../store/cart/cart-types';
+
 class ProductMapper {
-  toDomain(data: any) {
+  toDomain(data: any): IProduct[] {
     return data.map((item: any) => ({
       id: item.id,
       title: item.title,
