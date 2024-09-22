@@ -7,7 +7,12 @@ export const Header = () => {
   return (
     <div className="header">
       <a className="header__logo" href="/">
-        <img className="header__logo-img" src={logo} alt="Logo" />
+        <img
+          className="header__logo-img"
+          src={logo}
+          alt="Logo"
+          loading="lazy"
+        />
         <h1 className="header__logo-title">Redux Store</h1>
       </a>
       <button type="button" className="header__btn-cart" onClick={toggle}>

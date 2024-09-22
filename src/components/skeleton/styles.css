@@ -1,0 +1,31 @@
+.skeleton {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton.card {
+  height: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.circle {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.skeleton.text {
+  height: 1rem;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
