@@ -17,6 +17,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  outline: none;
 }
 
 .header__logo-img {
