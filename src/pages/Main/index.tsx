@@ -1,4 +1,4 @@
-import { useGetProducts } from '@/hooks/api/products';
+import { useGetProducts } from '@/api/products';
 import { Template } from '@/components/template';
 import { ProductList } from '@/components/productList';
 import { Cart } from '@/components/cart';
