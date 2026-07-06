@@ -1,15 +1,14 @@
 import { useCart } from '@/hooks/useCart';
-import './styles.css';
 
 export const Title = () => {
   const { totalQuantity, hasAnyProduct, toggle } = useCart();
 
   return (
-    <div className="cart-title">
+    <div className="flex items-center justify-between p-4 bg-zinc-900">
       <div>
         <span>Carrinho de compras </span>
         {hasAnyProduct && (
-          <span className="cart-title__items">
+          <span className="text-[0.85rem] text-gray-300">
             ({totalQuantity} {totalQuantity === 1 ? 'item' : 'itens'})
           </span>
         )}
@@ -17,7 +16,7 @@ export const Title = () => {
 
       <button
         title="Fechar carrinho"
-        className="cart-title__btn-close"
+        className="border-none bg-transparent text-[1.1rem] text-white cursor-pointer"
         onClick={toggle}
       >
         <i className="fa fa-close" />

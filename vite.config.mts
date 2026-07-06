@@ -1,7 +1,8 @@
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 import fs from 'fs';
-import { defineConfig } from 'vite';
 
 const generateAliases = (baseDir: string): Record<string, string> => {
   const srcPath = path.resolve(__dirname, baseDir);
@@ -20,14 +21,11 @@ const generateAliases = (baseDir: string): Record<string, string> => {
 };
 
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: generateAliases('./src'),
-  },
   server: {
     port: 5173,
   },
-  build: {
-    outDir: 'dist',
+  resolve: {
+    alias: generateAliases('./src'),
   },
+  plugins: [react(), tailwindcss()],
 });

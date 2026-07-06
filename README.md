@@ -5,7 +5,7 @@
 <p align="left">  
   Este projeto é um exercício de manipulação de estados utilizando <a href="https://redux-toolkit.js.org">Redux Toolkit</a>, que simula uma loja com funcionalidades básicas de adição e remoção de produtos no carrinho de compras.</a><br><br>
   Inclui um exemplo prático de como integrar a biblioteca <a href="https://swiperjs.com">Swiper</a> no React para criar sliders interativos.
-  Além disso, também como exercício, optei por utilizar CSS puro seguindo a metodologia BEM (Block, Element, Modifier), em vez de utilizar bibliotecas como Styled Components ou TailwindCSS.  
+  A estilização é feita com <a href="https://tailwindcss.com">Tailwind CSS</a>.
   </p>
 
 <p align="center">
