@@ -2,6 +2,7 @@
   "name": "redux-store",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "author": {
     "name": "José Lucas Panizio",
     "email": "lucaspanizio@gmail.com"
