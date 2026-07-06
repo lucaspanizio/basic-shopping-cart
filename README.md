@@ -4,7 +4,7 @@
 </div>
 <p align="left">  
   Este projeto é um exercício de manipulação de estados utilizando <a href="https://redux-toolkit.js.org">Redux Toolkit</a>, que simula uma loja com funcionalidades básicas de adição e remoção de produtos no carrinho de compras.</a><br><br>
-  Inclui um exemplo prático de como integrar a biblioteca <a href="https://swiperjs.com">Swiper</a> no React para criar sliders interativos.
+  Inclui um exemplo prático de como integrar o <a href="https://ui.shadcn.com/docs/components/base/carousel">carousel do shadcn/ui</a> no React para criar sliders interativos.
   A estilização é feita com <a href="https://tailwindcss.com">Tailwind CSS</a>.
   </p>
 

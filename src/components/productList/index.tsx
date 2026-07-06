@@ -1,11 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Navigation, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { formatCurrency } from '@/utils/formatCurrency';
 import { useCart } from '@/hooks/useCart';
 import { IProduct } from '@/store/cart/cart-types';
+import { Button } from '@/components/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+  useCarousel,
+} from '@/components/carousel';
 import { Skeleton } from '../skeleton';
-import './styles.css';
 
 interface IProductListProps {
   title: string;
@@ -13,49 +19,80 @@ interface IProductListProps {
   loading: boolean;
 }
 
+const ITEM_BASIS_CLASSES =
+  'basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 3xl:basis-[14.2857%]';
+
+const CarouselArrowButton = ({ direction }: { direction: 'prev' | 'next' }) => {
+  const { scrollPrev, scrollNext, canScrollPrev, canScrollNext } =
+    useCarousel();
+  const isPrev = direction === 'prev';
+
+  return (
+    <Button
+      type="button"
+      onClick={isPrev ? scrollPrev : scrollNext}
+      disabled={isPrev ? !canScrollPrev : !canScrollNext}
+      className="h-[50px] w-[50px] shrink-0 rounded-full border-white bg-transparent text-white hover:bg-white/10 disabled:opacity-40"
+    >
+      {isPrev ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+    </Button>
+  );
+};
+
+const CarouselDots = ({ api }: { api: CarouselApi | undefined }) => {
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+
+    setCount(api.scrollSnapList().length);
+    onSelect();
+    api.on('reInit', onSelect);
+    api.on('select', onSelect);
+
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api]);
+
+  return (
+    <div className="flex gap-2">
+      {Array.from({ length: count }).map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={() => api?.scrollTo(index)}
+          className={`h-[15px] w-[15px] rounded-full transition-colors ${
+            index === current ? 'bg-white' : 'bg-white/30'
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
+
 export const ProductList = ({
   title,
   loading,
   data: products,
 }: IProductListProps) => {
   const { appendItem } = useCart();
-  const [skeletonCount, setSkeletonCount] = useState(7);
-
-  const handleResize = () => {
-    const width = window.innerWidth;
-
-    if (width < 640) {
-      setSkeletonCount(2);
-    } else if (width >= 640 && width < 768) {
-      setSkeletonCount(3);
-    } else if (width >= 768 && width < 1024) {
-      setSkeletonCount(4);
-    } else if (width >= 1024 && width < 1360) {
-      setSkeletonCount(5);
-    } else {
-      setSkeletonCount(7);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const [api, setApi] = useState<CarouselApi>();
 
   return (
     <div className="flex flex-col px-4 pt-4">
-      <h1 className="ml-[var(--swiper-navigation-sides-offset,15px)] text-xl font-normal text-white">
-        {title}
-      </h1>
+      <h1 className="ml-4 text-xl font-normal text-white">{title}</h1>
       <div className="flex h-full w-full flex-col justify-center">
         {loading ? (
           <>
-            <div className="flex w-full justify-around">
-              {Array.from({ length: skeletonCount }).map((_, index) => (
+            <div className="flex w-full gap-2.5 overflow-hidden">
+              {Array.from({ length: 7 }).map((_, index) => (
                 <div
                   key={index}
-                  className="flex w-[200px] min-h-[265px] aspect-square flex-col items-center rounded-[15px] bg-[#fff] p-3"
+                  className={`flex min-h-[265px] aspect-square shrink-0 flex-col items-center rounded-[15px] bg-zinc-800 p-3 ${ITEM_BASIS_CLASSES}`}
                 >
                   <Skeleton variant="card" />
                   <Skeleton variant="text" />
@@ -75,48 +112,46 @@ export const ProductList = ({
             </div>
           </>
         ) : (
-          <Swiper
-            modules={[Navigation, Pagination]}
-            navigation={{ enabled: true }}
-            pagination={{ enabled: true, clickable: true }}
-            spaceBetween={10}
-            breakpoints={{
-              260: { slidesPerView: 2 },
-              640: { slidesPerView: 3 },
-              768: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 },
-              1360: { slidesPerView: 7 },
-            }}
-          >
-            {products.map((product) => (
-              <SwiperSlide key={product.id}>
-                <div className="group relative flex w-[200px] min-h-[265px] aspect-square select-none flex-col items-center justify-center rounded-[15px] border-[0.5px] border-black/20 bg-[#fff] p-3 text-black">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={product.image}
-                    alt={`Imagem do produto: ${product.title}}`}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 hidden rounded-[15px] bg-black transition-colors duration-500 ease-in-out group-hover:block group-hover:bg-black/30" />
-                  <span className="line-clamp-2 min-h-10 max-h-10 font-semibold leading-5 text-zinc-700">
-                    {product.title}
-                  </span>
-                  <span className="font-semibold text-purple-redux">
-                    {formatCurrency(product.price)}
-                  </span>
-                  <button
-                    className="absolute h-10 w-3/4 rounded-[5px] border-none bg-purple-redux text-[1.1rem] font-medium text-[#fff] text-center opacity-0 transition-opacity duration-[350ms] ease-in-out cursor-pointer group-hover:opacity-100"
-                    onClick={() => appendItem(product)}
-                  >
-                    <span className="uppercase">
-                      COMPRAR&nbsp;
-                      <i className="fa fa-shopping-cart" />
+          <Carousel setApi={setApi} opts={{ align: 'start' }}>
+            <CarouselContent className="-ml-2.5">
+              {products.map((product) => (
+                <CarouselItem
+                  key={product.id}
+                  className={`pl-2.5 ${ITEM_BASIS_CLASSES}`}
+                >
+                  <div className="group relative flex min-h-[265px] aspect-square select-none flex-col items-center justify-center rounded-[15px] border-[0.5px] border-white/10 bg-zinc-800 p-3">
+                    <img
+                      className="h-full w-full object-cover mix-blend-multiply"
+                      src={product.image}
+                      alt={`Imagem do produto: ${product.title}}`}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 hidden rounded-[15px] bg-black transition-colors duration-500 ease-in-out group-hover:block group-hover:bg-black/30" />
+                    <span className="line-clamp-2 min-h-10 max-h-10 font-semibold leading-5 text-gray-300">
+                      {product.title}
                     </span>
-                  </button>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                    <span className="font-semibold text-purple-redux">
+                      {formatCurrency(product.price)}
+                    </span>
+                    <button
+                      className="absolute h-10 w-3/4 rounded-[5px] border-none bg-purple-redux text-[1.1rem] font-medium text-[#fff] text-center opacity-0 transition-opacity duration-[350ms] ease-in-out cursor-pointer group-hover:opacity-100"
+                      onClick={() => appendItem(product)}
+                    >
+                      <span className="uppercase">
+                        COMPRAR&nbsp;
+                        <i className="fa fa-shopping-cart" />
+                      </span>
+                    </button>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-3 ml-4 flex w-full items-center justify-between pr-8">
+              <CarouselArrowButton direction="prev" />
+              <CarouselDots api={api} />
+              <CarouselArrowButton direction="next" />
+            </div>
+          </Carousel>
         )}
       </div>
     </div>
