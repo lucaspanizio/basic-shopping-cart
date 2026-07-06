@@ -6,7 +6,7 @@ class ProductMapper {
       id: item.id,
       title: item.title,
       price: item.price,
-      image: item.thumbnail.replace('-I.jpg', '-L.jpg'),
+      image: item.thumbnail,
     }));
   }
 }
