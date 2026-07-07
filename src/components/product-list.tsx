@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
-import { formatCurrency } from '@/utils/formatCurrency';
-import { useCart } from '@/hooks/useCart';
+import { formatCurrency } from '@/utils/format-currency';
+import { useCart } from '@/hooks/use-cart';
 import { IProduct } from '@/store/cart/cart-types';
 import { Button } from '@/components/button';
 import {
@@ -11,7 +11,7 @@ import {
   type CarouselApi,
   useCarousel,
 } from '@/components/carousel';
-import { Skeleton } from '../skeleton';
+import { Skeleton } from './skeleton';
 
 interface IProductListProps {
   title: string;
@@ -65,9 +65,8 @@ const CarouselDots = ({ api }: { api: CarouselApi | undefined }) => {
           key={index}
           type="button"
           onClick={() => api?.scrollTo(index)}
-          className={`h-[15px] w-[15px] rounded-full transition-colors ${
-            index === current ? 'bg-white' : 'bg-white/30'
-          }`}
+          className={`h-[15px] w-[15px] rounded-full transition-colors ${index === current ? 'bg-white' : 'bg-white/30'
+            }`}
         />
       ))}
     </div>

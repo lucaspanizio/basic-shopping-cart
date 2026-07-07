@@ -1,6 +1,6 @@
 import { Button as ButtonPrimitive } from '@base-ui/react/button';
 
-import { cn } from '@/lib/tailwindcss';
+import { cn } from '@/utils/cn';
 
 export function Button({ className, ...props }: ButtonPrimitive.Props) {
   return (

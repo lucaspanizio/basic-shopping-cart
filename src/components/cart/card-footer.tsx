@@ -1,7 +1,7 @@
-import { useCart } from '@/hooks/useCart';
-import { formatCurrency } from '@/utils/formatCurrency';
+import { useCart } from '@/hooks/use-cart';
+import { formatCurrency } from '@/utils/format-currency';
 
-export const Footer = () => {
+export const CardFooter = () => {
   const { totalValue } = useCart();
 
   return (

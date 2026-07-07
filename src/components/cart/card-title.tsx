@@ -1,6 +1,6 @@
-import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/hooks/use-cart';
 
-export const Title = () => {
+export const CardTitle = () => {
   const { totalQuantity, hasAnyProduct, toggle } = useCart();
 
   return (

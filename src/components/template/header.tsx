@@ -1,20 +1,20 @@
-import { useCart } from '@/hooks/useCart';
-import logo from '@/assets/logo.png';
+import { useCart } from '@/hooks/use-cart';
 
 export const Header = () => {
   const { toggle, totalQuantity } = useCart();
   return (
-    <div className="sticky top-0 z-20 flex w-full h-20 items-center justify-between px-6 text-white bg-zinc-900">
+    <header className="sticky top-0 z-20 flex w-full h-20 items-center justify-between px-6 text-white bg-zinc-900">
       <a
         className="flex items-center gap-2 outline-none"
         href="/"
       >
-        <img className="w-14" src={logo} alt="Logo" loading="lazy" />
-        <h1 className="text-[1.75rem] font-semibold uppercase">
+        <img className="w-14" src="/logo.png" alt="Logo Redux Store" loading="lazy" />
+        <h1 className="text-3xl font-semibold uppercase">
           Redux Store
         </h1>
       </a>
       <button
+        id="btn-cart"
         type="button"
         className="relative w-auto rounded-[5px] border-none bg-transparent text-[2rem] cursor-pointer"
         onClick={toggle}
@@ -26,6 +26,6 @@ export const Header = () => {
           </span>
         )}
       </button>
-    </div>
+    </header>
   );
 };
