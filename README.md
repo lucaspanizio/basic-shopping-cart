@@ -3,20 +3,27 @@
   <h1 align="left">Redux Store</h1>
 </div>
 <p align="left">  
-  Este projeto é um exercício de manipulação de estados utilizando <a href="https://redux-toolkit.js.org">Redux Toolkit</a>, que simula uma loja com funcionalidades básicas de adição e remoção de produtos no carrinho de compras.</a><br><br>
-  Inclui um exemplo prático de como integrar o <a href="https://ui.shadcn.com/docs/components/base/carousel">carousel do shadcn/ui</a> no React para criar sliders interativos.
-  A estilização é feita com <a href="https://tailwindcss.com">Tailwind CSS</a>.
+  Este projeto é uma POC (prova de conceito) de gerenciamento de estados com <a href="https://redux-toolkit.js.org">Redux Toolkit</a>, que simula uma loja com funcionalidades básicas de adição e remoção de produtos no carrinho de compras.
   </p>
 
 <p align="center">
+  <a href="#-tecnologias">🛠️ Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">⚡ Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">📜 Licença</a>
   <br><br>
 
-  ![GIF de apresentação da aplicação](https://github.com/user-attachments/assets/12a32836-a925-440c-ae96-e7fd2d065db2)
+  ![Imagem de demonstração 1](public/preview-1.png)
+  ![Imagem de demonstração 2](public/preview-2.png)
 
 </p>
 <br>
+
+## 🛠️ Tecnologias
+
+- **Redux Toolkit** + `redux-persist` — estado e persistência do carrinho de compras
+- **React Query** + **Axios** — busca de produtos na <a href="https://dummyjson.com">DummyJSON</a>
+- **Tailwind CSS** + carousel do <a href="https://ui.shadcn.com/docs/components/base/carousel">shadcn/ui</a> — estilização e slider de produtos
+<br><br>
 
 ## ⚡ Como executar
 

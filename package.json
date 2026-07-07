@@ -1,6 +1,7 @@
 {
   "name": "redux-store",
   "version": "1.0.0",
+  "description": "POC de gerenciamento de estado com Redux Toolkit: loja fictícia com carrinho de compras, catálogo de produtos e carrossel.",
   "private": true,
   "type": "module",
   "author": {
