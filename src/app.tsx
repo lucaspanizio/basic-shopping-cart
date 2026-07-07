@@ -1,23 +1,28 @@
-import { PersistGate } from 'redux-persist/integration/react';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { Provider as ReduxProvider } from 'react-redux';
-import ReactDOM from 'react-dom/client';
-import React from 'react';
+import { useGetProducts } from '@/api/products';
+import { Template } from '@/components/template';
+import { ProductList } from '@/components/product-list';
+import { Cart } from '@/components/cart';
 
-import { store, persistor } from '@/store';
-import { queryClient } from '@/lib/query-client';
-import { Main } from '@/pages/Main';
+export const App = () => {
+  const { data: smartphones = [], isLoading: loadingSmartphones } =
+    useGetProducts({ category: 'smartphones' });
+  const { data: notebooks = [], isLoading: loadingNotebooks } = useGetProducts({
+    category: 'laptops',
+  });
 
-import './global.css';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ReduxProvider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Main />
-        </PersistGate>
-      </ReduxProvider>
-    </QueryClientProvider>
-  </React.StrictMode>,
-);
+  return (
+    <Template>
+      <ProductList
+        title="Notebooks"
+        data={notebooks}
+        loading={loadingNotebooks}
+      />
+      <ProductList
+        title="Celulares"
+        data={smartphones}
+        loading={loadingSmartphones}
+      />
+      <Cart />
+    </Template>
+  );
+};
