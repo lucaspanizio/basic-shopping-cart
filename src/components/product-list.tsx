@@ -32,7 +32,7 @@ const CarouselArrowButton = ({ direction }: { direction: 'prev' | 'next' }) => {
       type="button"
       onClick={isPrev ? scrollPrev : scrollNext}
       disabled={isPrev ? !canScrollPrev : !canScrollNext}
-      className="h-[50px] w-[50px] shrink-0 rounded-full border-white bg-transparent text-white hover:bg-white/10 disabled:opacity-40"
+      className="h-12 w-12 shrink-0 rounded-full border-white bg-transparent text-white hover:bg-white/10 disabled:opacity-40"
     >
       {isPrev ? <ChevronLeftIcon /> : <ChevronRightIcon />}
     </Button>
@@ -65,7 +65,7 @@ const CarouselDots = ({ api }: { api: CarouselApi | undefined }) => {
           key={index}
           type="button"
           onClick={() => api?.scrollTo(index)}
-          className={`h-[15px] w-[15px] rounded-full transition-colors ${index === current ? 'bg-white' : 'bg-white/30'
+          className={`h-4 w-4 rounded-full transition-colors ${index === current ? 'bg-white' : 'bg-white/30'
             }`}
         />
       ))}
@@ -91,7 +91,7 @@ export const ProductList = ({
               {Array.from({ length: 7 }).map((_, index) => (
                 <div
                   key={index}
-                  className={`flex min-h-[265px] aspect-square shrink-0 flex-col items-center rounded-[15px] bg-zinc-800 p-3 ${ITEM_BASIS_CLASSES}`}
+                  className={`flex min-h-64 aspect-square shrink-0 flex-col items-center rounded-2xl bg-zinc-800 p-3 ${ITEM_BASIS_CLASSES}`}
                 >
                   <Skeleton variant="card" />
                   <Skeleton variant="text" />
@@ -118,14 +118,14 @@ export const ProductList = ({
                   key={product.id}
                   className={`pl-2.5 ${ITEM_BASIS_CLASSES}`}
                 >
-                  <div className="group relative flex min-h-[265px] aspect-square select-none flex-col items-center justify-center rounded-[15px] border-[0.5px] border-white/10 bg-zinc-800 p-3">
+                  <div className="group relative flex min-h-64 aspect-square select-none flex-col items-center justify-center rounded-2xl border border-white/10 bg-zinc-800 p-3">
                     <img
                       className="h-full w-full object-cover mix-blend-multiply"
                       src={product.image}
                       alt={`Imagem do produto: ${product.title}}`}
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 hidden rounded-[15px] bg-black transition-colors duration-500 ease-in-out group-hover:block group-hover:bg-black/30" />
+                    <div className="absolute inset-0 hidden rounded-2xl bg-black transition-colors duration-500 ease-in-out group-hover:block group-hover:bg-black/30" />
                     <span className="line-clamp-2 min-h-10 max-h-10 font-semibold leading-5 text-gray-300">
                       {product.title}
                     </span>
@@ -133,7 +133,7 @@ export const ProductList = ({
                       {formatCurrency(product.price)}
                     </span>
                     <button
-                      className="absolute h-10 w-3/4 rounded-[5px] border-none bg-purple-redux text-[1.1rem] font-medium text-[#fff] text-center opacity-0 transition-opacity duration-[350ms] ease-in-out cursor-pointer group-hover:opacity-100"
+                      className="absolute h-10 w-3/4 rounded-md border-none bg-purple-redux text-lg font-medium text-white text-center opacity-0 transition-opacity duration-300 ease-in-out cursor-pointer group-hover:opacity-100"
                       onClick={() => appendItem(product)}
                     >
                       <span className="uppercase">

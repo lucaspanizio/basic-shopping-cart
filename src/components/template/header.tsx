@@ -16,12 +16,12 @@ export const Header = () => {
       <button
         id="btn-cart"
         type="button"
-        className="relative w-auto rounded-[5px] border-none bg-transparent text-[2rem] cursor-pointer"
+        className="relative w-auto rounded-md border-none bg-transparent text-3xl cursor-pointer"
         onClick={toggle}
       >
         <i className="fa fa-shopping-cart" />
         {totalQuantity > 0 && (
-          <span className="absolute -top-[5px] -right-2.5 flex min-w-[25px] min-h-[25px] max-w-[50px] items-center justify-center overflow-hidden whitespace-nowrap rounded-full p-[0.3rem] text-[0.7rem] font-bold text-center text-white bg-purple-redux">
+          <span className="absolute -top-1 -right-2.5 flex min-w-6 min-h-6 max-w-12 items-center justify-center overflow-hidden whitespace-nowrap rounded-full p-1 text-xs font-bold text-center text-white bg-purple-redux">
             {totalQuantity}
           </span>
         )}
