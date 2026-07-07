@@ -5,10 +5,10 @@ import { Header } from '@/components/template/header';
 
 export const Template = ({ children }: PropsWithChildren) => {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header />
-      {children}
+      <div className="flex-1">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };

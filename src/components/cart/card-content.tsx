@@ -10,19 +10,21 @@ export const CardContent = () => {
         <>
           {items.map((product) => (
             <div
-              className="flex h-28 justify-between gap-3 pb-4 text-xs [&:not(:last-child)]:border-b [&:not(:last-child)]:border-zinc-700"
+              className="flex justify-between gap-3 pb-4 text-xs [&:not(:last-child)]:border-b [&:not(:last-child)]:border-zinc-700"
               key={product.id}
             >
-              <img
-                className="min-w-24 max-w-24 select-none overflow-hidden rounded-md [-webkit-user-drag:none]"
-                src={product.image}
-                alt="Imagem do Produto"
-              />
-              <div className="flex w-full flex-col items-start justify-between">
+              <div className="h-min max-w-16 p-1 rounded-xl bg-white">
+                <img
+                  src={product.image}
+                  alt={`Imagem do ${product.title}`}
+                  className="select-none overflow-hidden [-webkit-user-drag:none]"
+                />
+              </div>
+              <div className="flex w-full flex-col gap-y-1 items-start justify-between">
                 <span className="line-clamp-2 max-h-10 leading-5 text-white">
                   {product.title}
                 </span>
-                <span className="text-sm font-bold text-white">
+                <span className="text-xs font-bold text-white">
                   {formatCurrency(product.price)}
                 </span>
                 <div className="flex items-center justify-center gap-4">
